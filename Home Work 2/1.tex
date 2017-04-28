@@ -1,0 +1,77 @@
+\normalfont\documentclass[letterpaper,11pt]{article}
+\usepackage{amsmath, amsfonts,amssymb,latexsym}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{flexisym}
+\usepackage{algorithm}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{pythonhighlight}
+\usepackage{amsmath}
+\begin{document}
+\setlength{\parindent}{2ex}
+\newcommand{\header}{
+	\noindent \fbox{
+	\begin{minipage}{6.4in}
+  	\medskip
+  	\textbf{CS 261 - Data Structure} \hfill \textbf{Spring 2017} \\[1mm]
+  	\begin{center}
+    	{\Large HomeWork 2} \\[3mm]
+  	\end{center}
+	\today \hfill \itshape{Liangjian Chen}
+	\medskip
+	\end{minipage}}
+}
+\newcommand{\RN}[1]{%
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+
+\bigskip
+\header
+
+\begin{enumerate}
+\item [Problem 1]\textbf{Solution:}\par
+\begin{flalign*}
+	&Pr = \binom{n}{s-1}  (\frac{1}{N})^{s-1} (\frac{N-1}{N})^{N-s} &\\
+	&\le \frac{n(n-1)(n-2)...(n-s+1)}{(s-1)!}* (\frac{1}{N})^{s-1}&\\
+	&\le \frac{n^{s-1}}{N^{s-1} * (s-1)!} &\\
+	&= \frac{\alpha^{s-1}}{(s-1)!}&
+\end{flalign*}
+\item [Problem 2]\textbf{Solution:}\par
+\begin{enumerate}
+	\item[a] 
+	the probabilty of a pair entries has same key is $(N/2)^{-2}$.\par 
+	Thus the the probabilty of a triple entries has same key is $(N/2)^{-4}$. \par
+	The numer of all possible triple is $\binom{n}{3} = \frac{n(n-1)(n-2)}{6}$.\par
+	Hence $E = (N/2)^{-2} * \binom{n}{3} = \frac{8n(n-1)(n-2)}{3N^4}$.
+	\item[b]
+	\begin{flalign*}
+		&Pr[R>t] \le E[R]/t \text{ with t = 1}&\\
+		&\rightarrow Pr[R>t] \le \frac{8n(n-1)(n-2)}{3N^4}&\\
+		&\le \frac{8n^3}{3N^4}&\\
+		&\le \frac{8}{3} \alpha^4 \frac{1}{n}&\\
+		&= O(\frac{1}{n})&
+	\end{flalign*}
+\end{enumerate}
+\item [Problem 3]\textbf{Solution:}\par
+\begin{python}
+def CheckSingle(Input):
+	dic = {}
+	for item in Input:
+		if dic.has_key(item):
+			dic[item] += 1
+		else:
+			dic[item] = 1
+	ans = []
+	for key in dic:
+		if dic[key] == 1:
+			ans.append(key)
+	return ans
+\end{python}
+\item [Problem 4]\textbf{Solution:}\par
+Cuckoo. Because, using Cuckoo, looking up time is $O(1)$. For two of other algorithm, the worst time could be O(n).
+
+\end{enumerate}
+\end{document}
