@@ -33,26 +33,18 @@
 
 \begin{enumerate}
 \item [Problem 1]\textbf{Solution:}\par
-For every node, we record how many leaves in its subtree.\par
-Then we found the corresponding node of $q$, the number of leaves is same as the numebr of match postion.\par
-
+\includegraphics[width=6in]{1.JPG}\par
+The query between node $24$ and node $13$.
 \item [Problem 2]\textbf{Solution:}\par
-Assume tree size is $n$ and it is $0$-index.\par
-If $n$ is an odd number, unrank($\lfloor\frac{n}{2}\rfloor$) will return the answer.\par
-Otherwise, the median of unrank($\lfloor\frac{n}{2}\rfloor$) and unrank($\lfloor\frac{n}{2}\rfloor - 1$) is the answer.
-
+$(2,0)\rightarrow(4,1)\rightarrow (18,2)\rightarrow (21,3)\rightarrow (18,2)\rightarrow(4,1)\rightarrow(6,2)\\
+\rightarrow(19,3)\rightarrow (25,4)\rightarrow (19,3)\rightarrow (20,4)\rightarrow (22,5)\rightarrow(24,6)\rightarrow(22,5)\\
+\rightarrow(20,4) \rightarrow(19,3)\rightarrow (6,2)\rightarrow (11,3)\rightarrow (6,2)\rightarrow(4,1)\rightarrow(2,0)\\
+\rightarrow(10,1)\rightarrow (13,2)\rightarrow (17,3)\rightarrow (13,2)\rightarrow(10,1)\rightarrow(2,0)$\par
+Assume 0-index, positions are 12 and 22.
 \item [Problem 3]\textbf{Solution:}\par
-\begin{enumerate}
-	\item[$s > t$:]\par
-	when $s > t$, $s$ operations at most change $s$ different memory cells. Thus the lower bound is $\Omega(s\log s)$.
-	\item[$s < t$:]\par
-	Assume $x = t \mod s$.\par
-	Decompsing $t$ opeations into several different group each with size $s$ and a extra one group with size $x$. Then for group with size s, it is $\Omega(s\log s)$. For the group with size $x$, from $s < t$, we konw it is $\Omega(x\log x)$. Thus the final answer is $\lfloor\frac{t}{s}\rfloor * s\log s + x\log x = \Omega(s\log t)$
-	Therefore it is $\min(s\log s, s \log t)$
-\end{enumerate}
+$------$ can not occur in this sequence, beacause the depth of tree is 6 and it is impossible to decease depth consecutively 6 times.
 \item [Problem 4]\textbf{Solution:}\par
-\begin{flalign*}
-	&\sum_{x=1}^{i}\sum_{y = x}^{i}2^y =\sum_{x=1}^i{x2^x} = (i-1)2^{i+1} + 2&
-\end{flalign*}
+When $LCA(x,y)$ is not $x$, first step is to the $x$'s father. In the case of $LCA(x,y) = x$, if $LCA(x\text{'s left son},y)$ is $x's$ left son, go left son, otherwise right son.\par
+Therefore we make LCA query at most twice.
 \end{enumerate}
 \end{document}
