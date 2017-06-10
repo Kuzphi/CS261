@@ -42,7 +42,7 @@ $(2,0)\rightarrow(4,1)\rightarrow (18,2)\rightarrow (21,3)\rightarrow (18,2)\rig
 \rightarrow(10,1)\rightarrow (13,2)\rightarrow (17,3)\rightarrow (13,2)\rightarrow(10,1)\rightarrow(2,0)$\par
 Assume 0-index, positions are 12 and 22.
 \item [Problem 3]\textbf{Solution:}\par
-$------$ can not occur in this sequence, beacause the depth of tree is 6 and it is impossible to decease depth consecutively 6 times.
+$+-+-+$ can not occur in this sequence, because the degree of a node is at most 2, it must go up after going down, going up, going down and going up.
 \item [Problem 4]\textbf{Solution:}\par
 When $LCA(x,y)$ is not $x$, first step is to the $x$'s father. In the case of $LCA(x,y) = x$, if $LCA(x\text{'s left son},y)$ is $x's$ left son, go left son, otherwise right son.\par
 Therefore we make LCA query at most twice.
